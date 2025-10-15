@@ -21,5 +21,7 @@ while ($row = $statement->fetch()) {
    $posts[] = $post;
 }
 
+require('src/model.php');
+$posts = getPosts();
 require('templates/homepage.php');
 ?>

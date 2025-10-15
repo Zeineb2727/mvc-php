@@ -2,18 +2,17 @@
 <html>
 
 <head>
-   <meta charset="utf-8" />
-   <title>Le blog de l'AVBN</title>
-   <link href="style.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <title>Le blog de l'AVBN</title>
+    <link href="style.css" rel="stylesheet" />
 </head>
 
 <body>
-   <h1>Le super blog de l'AVBN !</h1>
-   <p>Derniers billets du blog :</p>
+    <h1>Le super blog de l'AVBN !</h1>
+    <p>Derniers billets du blog :</p>
 
-   
-   <?php
-   foreach ($posts as $post) {
+    <?php
+    foreach ($posts as $post) {
     ?>
         <div class="news">
             <h3>
@@ -29,10 +28,10 @@
                 <em><a href="#">Commentaires</a></em>
             </p>
         </div>
-        <?php
-            } // Fin de la boucle des billets
-            $statement->closeCursor();
-        ?>
+    <?php
+    } // Fin de la boucle des billets
+    $statement->closeCursor();
+    ?>
 </body>
 
 </html>
