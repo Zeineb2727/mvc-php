@@ -1,10 +1,11 @@
 <?php
 
-function getPosts() {
+function getPosts()
+{
     try {
         $database = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'root');
-    } catch(Exception $e) {
-        die('Erreur : '.$e->getMessage());
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
     }
 
     $statement = $database->query(
@@ -16,6 +17,7 @@ function getPosts() {
             'title' => $row['title'],
             'french_creation_date' => $row['french_creation_date'],
             'content' => $row['content'],
+            'identifier' => $row['id'],
         ];
 
         $posts[] = $post;
