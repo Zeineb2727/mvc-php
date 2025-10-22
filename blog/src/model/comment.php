@@ -1,6 +1,12 @@
 <?php
+class Comment
+{
+    public $author;
+    public $frenchCreationDate;
+    public $comment;
+}
 
-function getComments(string $post)
+function getComments($post)
 {
     $database = commentDbConnect();
     $statement = $database->prepare(
@@ -10,11 +16,10 @@ function getComments(string $post)
 
     $comments = [];
     while (($row = $statement->fetch())) {
-        $comment = [
-            'author' => $row['author'],
-            'french_creation_date' => $row['french_creation_date'],
-            'comment' => $row['comment'],
-        ];
+        $comment = new Comment();
+        $comment->author = $row['author'];
+        $comment->frenchCreationDate = $row['french_creation_date'];
+        $comment->comment = $row['comment'];
 
         $comments[] = $comment;
     }
@@ -22,7 +27,7 @@ function getComments(string $post)
     return $comments;
 }
 
-function createComment(string $post, string $author, string $comment)
+function createComment($post, $author, $comment)
 {
     $database = commentDbConnect();
     $statement = $database->prepare(
@@ -35,7 +40,7 @@ function createComment(string $post, string $author, string $comment)
 
 function commentDbConnect()
 {
-    $database = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'blog', 'password');
+    $database = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'root');
 
     return $database;
 }

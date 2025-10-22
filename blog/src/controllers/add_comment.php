@@ -2,7 +2,7 @@
 
 require_once('src/model/comment.php');
 
-function addComment(string $post, array $input)
+function addComment( $post,  $input)
 {
     $author = null;
     $comment = null;
