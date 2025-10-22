@@ -1,5 +1,6 @@
 <?php
 
+
 class Post
 {
     public $title;
@@ -10,7 +11,7 @@ class Post
 
 class PostRepository
 {
-    public $connection;
+    public  $connection;
     public function __construct(DatabaseConnection $dbConnection)
     {
         $this->connection = $dbConnection;
